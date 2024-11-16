@@ -6,10 +6,13 @@ use App\Filament\Resources\KegiatanTambahanResource\Pages;
 use App\Filament\Resources\KegiatanTambahanResource\RelationManagers;
 use App\Models\KegiatanTambahan;
 use Filament\Forms;
+use Filament\Forms\Components\Card;
+use Filament\Forms\Components\TextInput;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -23,7 +26,10 @@ class KegiatanTambahanResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Card::make()
+                ->schema([
+                    TextInput::make('deskripsi')->required(),
+                ])
             ]);
     }
 
@@ -31,13 +37,14 @@ class KegiatanTambahanResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('deskripsi'),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
