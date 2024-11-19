@@ -3,6 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\KegiatanController;
+use App\Http\Controllers\Api\KegiatanTambahanController;
+use App\Http\Controllers\Api\FasilitasController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +20,10 @@ use App\Http\Controllers\Api\KegiatanController;
 
 Route::get('/kegiatan', [KegiatanController::class, 'index']);
 Route::get('/kegiatan/{id}', [KegiatanController::class, 'show']);
+Route::get('/kegiatan-tambahan', [KegiatanTambahanController::class, 'index']);
+Route::get('/kegiatan-tambahan/{id}', [KegiatanTambahanController::class, 'show']);
+Route::get('fasilitas', [FasilitasController::class, 'index']);
+Route::get('fasilitas/{id}', [FasilitasController::class, 'show']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
