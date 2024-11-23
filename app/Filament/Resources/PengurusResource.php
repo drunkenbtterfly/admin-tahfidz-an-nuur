@@ -53,8 +53,8 @@ class PengurusResource extends Resource
 
                 ImageColumn::make('foto')
                     ->label('Foto')
-                    ->disk('public') // Pastikan disk `public` dikonfigurasi dengan benar
-                    ->directory('pengurus') // Arahkan ke folder tempat gambar disimpan
+                    ->disk('public')
+                    ->directory('pengurus')
                     ->circular(),
             ])
             ->filters([
