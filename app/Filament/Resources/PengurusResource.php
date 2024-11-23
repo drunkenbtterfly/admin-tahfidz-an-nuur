@@ -28,12 +28,12 @@ class PengurusResource extends Resource
         return $form
             ->schema([
                 TextInput::make('nama'),
-
                 TextInput::make('jabatan'),
-
                 FileUpload::make('foto')
                     ->image()
-                    ->label('Upload Foto'),
+                    ->label('Upload Foto')
+                    ->directory('penguruses')
+                    ->preserveFilenames(),
             ]);
     }
 
@@ -54,7 +54,6 @@ class PengurusResource extends Resource
                 ImageColumn::make('foto')
                     ->label('Foto')
                     ->disk('public')
-                    ->directory('pengurus')
                     ->circular(),
             ])
             ->filters([
