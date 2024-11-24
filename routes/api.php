@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\KegiatanController;
 use App\Http\Controllers\Api\KegiatanTambahanController;
 use App\Http\Controllers\Api\FasilitasController;
+use App\Http\Controllers\Api\GaleriController;
 use App\Http\Controllers\PengurusController;
 
 
@@ -27,6 +28,8 @@ Route::get('fasilitas', [FasilitasController::class, 'index']);
 Route::get('fasilitas/{id}', [FasilitasController::class, 'show']);
 Route::get('/pengurus', [PengurusController::class, 'index']);
 Route::get('/pengurus/{id}', [PengurusController::class, 'show']);
+Route::get('/galeri', [GaleriController::class, 'index']);
+Route::get('/galeri/{id}', [GaleriController::class, 'show']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('url');
             $table->float('speed');
             $table->float('rotate');
-            $table->enum('kategori', ['Fasilitas', 'Kegiatan', 'Prestasi', 'Santri']);
+            $table->enum('kategori', ['Fasilitas', 'Kegiatan', 'Prestasi', 'Santri']); // Edit disini
             $table->timestamps();
         });
     }
