@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Sertifikat extends Model
 {
     use HasFactory;
+    protected $fillable = ['sertifikat'];
 }
