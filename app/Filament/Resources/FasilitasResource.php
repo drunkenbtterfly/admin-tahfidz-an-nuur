@@ -20,6 +20,10 @@ class FasilitasResource extends Resource
 {
     protected static ?string $model = Fasilitas::class;
 
+    protected static ?string $navigationLabel = 'Fasilitas';
+
+    protected static ?string $navigationGroup = 'Program & Fasilitas';
+
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
     public static function form(Form $form): Form

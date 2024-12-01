@@ -19,6 +19,10 @@ class Santri30JuzResource extends Resource
 {
     protected static ?string $model = Santri30Juz::class;
 
+    protected static ?string $navigationLabel = 'Santri 30 Juz';
+
+    protected static ?string $navigationGroup = 'Beranda';
+
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
     public static function form(Form $form): Form

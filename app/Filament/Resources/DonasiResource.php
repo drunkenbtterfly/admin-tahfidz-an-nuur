@@ -21,6 +21,10 @@ class DonasiResource extends Resource
 {
     protected static ?string $model = Donasi::class;
 
+    protected static ?string $navigationLabel = 'Donasi';
+
+    protected static ?string $navigationGroup = 'Donasi';
+
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
     public static function form(Form $form): Form

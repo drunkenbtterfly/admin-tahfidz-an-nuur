@@ -23,6 +23,10 @@ class GaleriResource extends Resource
 {
     protected static ?string $model = Galeri::class;
 
+    protected static ?string $navigationLabel = 'Galeri';
+
+    protected static ?string $navigationGroup = 'Galeri';
+
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
     public static function form(Form $form): Form

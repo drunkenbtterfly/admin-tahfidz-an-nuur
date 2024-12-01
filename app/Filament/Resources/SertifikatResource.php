@@ -2,27 +2,26 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\KegiatanTambahanResource\Pages;
-use App\Filament\Resources\KegiatanTambahanResource\RelationManagers;
-use App\Models\KegiatanTambahan;
+use App\Filament\Resources\SertifikatResource\Pages;
+use App\Filament\Resources\SertifikatResource\RelationManagers;
+use App\Models\Sertifikat;
 use Filament\Forms;
-use Filament\Forms\Components\Card;
-use Filament\Forms\Components\TextInput;
 use Filament\Resources\Form;
+use Filament\Forms\Components\FileUpload;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
-use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class KegiatanTambahanResource extends Resource
+class SertifikatResource extends Resource
 {
-    protected static ?string $model = KegiatanTambahan::class;
+    protected static ?string $model = Sertifikat::class;
 
-    protected static ?string $navigationLabel = 'Kegiatan Tambahan';
+    protected static ?string $navigationLabel = 'Sertifikat';
 
-    protected static ?string $navigationGroup = 'Program & Fasilitas';
+    protected static ?string $navigationGroup = 'Beranda';
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
@@ -30,10 +29,11 @@ class KegiatanTambahanResource extends Resource
     {
         return $form
             ->schema([
-                Card::make()
-                ->schema([
-                    TextInput::make('deskripsi')->required(),
-                ])
+                FileUpload::make('sertifikat')
+                    ->image()
+                    ->label('Upload Sertifikat')
+                    ->directory('sertifikat')
+                    ->preserveFilenames(),
             ]);
     }
 
@@ -41,14 +41,15 @@ class KegiatanTambahanResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('deskripsi'),
+                ImageColumn::make('sertifikat')
+                    ->label('Sertifikat')
+                    ->disk('public'),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
@@ -65,9 +66,9 @@ class KegiatanTambahanResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListKegiatanTambahans::route('/'),
-            'create' => Pages\CreateKegiatanTambahan::route('/create'),
-            'edit' => Pages\EditKegiatanTambahan::route('/{record}/edit'),
+            'index' => Pages\ListSertifikats::route('/'),
+            'create' => Pages\CreateSertifikat::route('/create'),
+            'edit' => Pages\EditSertifikat::route('/{record}/edit'),
         ];
     }    
 }
