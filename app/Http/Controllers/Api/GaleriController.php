@@ -7,9 +7,6 @@ use App\Models\Galeri;
 
 class GaleriController extends Controller
 {
-    /**
-     * Menampilkan semua data galeri.
-     */
     public function index()
 {
     $galeri = Galeri::all()->map(function ($item) {
@@ -20,10 +17,6 @@ class GaleriController extends Controller
     return response()->json($galeri, 200);
 }
 
-
-    /**
-     * Menampilkan data galeri berdasarkan ID.
-     */
     public function show($id)
     {
         $galeri = Galeri::find($id);

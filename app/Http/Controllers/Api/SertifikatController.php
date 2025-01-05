@@ -8,9 +8,6 @@ use Illuminate\Http\Request;
 
 class SertifikatController extends \App\Http\Controllers\Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $sertifikats = Sertifikat::all()->map(function ($sertifikat) {
@@ -26,9 +23,6 @@ class SertifikatController extends \App\Http\Controllers\Controller
         return response()->json($sertifikats);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show($id)
     {
         $sertifikat = Sertifikat::find($id);
@@ -46,9 +40,6 @@ class SertifikatController extends \App\Http\Controllers\Controller
         ]);
     }
 
-    /**
-     * Generate URL for the image.
-     */
     private function generateImageUrl($path)
     {
         return Storage::disk('public')->url($path);

@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 class PengurusController extends Controller
 {
-    // Get all Pengurus with their photo URLs
     public function index()
     {
         $penguruses = Pengurus::all()->map(function ($pengurus) {
@@ -21,8 +20,7 @@ class PengurusController extends Controller
 
         return response()->json($penguruses, 200);
     }
-
-    // Get a single Pengurus with their photo URL
+    
     public function show($id)
     {
         $pengurus = Pengurus::find($id);

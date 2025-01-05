@@ -8,17 +8,15 @@ use Illuminate\Http\Request;
 
 class FasilitasController extends Controller
 {
-    // Method untuk mengambil data fasilitas
     public function index()
     {
-        $fasilitas = Fasilitas::all(); // Mengambil semua data fasilitas
-        return response()->json($fasilitas); // Mengembalikan dalam format JSON
+        $fasilitas = Fasilitas::all();
+        return response()->json($fasilitas);
     }
 
-    // Method untuk mengambil fasilitas berdasarkan ID (opsional)
     public function show($id)
     {
-        $fasilitas = Fasilitas::find($id); // Mencari berdasarkan ID
+        $fasilitas = Fasilitas::find($id);
         if ($fasilitas) {
             return response()->json($fasilitas);
         }

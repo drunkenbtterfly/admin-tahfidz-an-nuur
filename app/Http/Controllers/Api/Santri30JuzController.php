@@ -8,13 +8,11 @@ use Illuminate\Http\Request;
 
 class Santri30JuzController extends Controller
 {
-    // Menampilkan semua data santri
     public function index()
     {
         return response()->json(Santri30Juz::all());
     }
 
-    // Menampilkan data santri berdasarkan ID
     public function show($id)
     {
         $santri = Santri30Juz::find($id);
@@ -26,7 +24,6 @@ class Santri30JuzController extends Controller
         return response()->json($santri);
     }
 
-    // Menambahkan data santri baru
     public function store(Request $request)
     {
         $request->validate([
@@ -39,7 +36,6 @@ class Santri30JuzController extends Controller
         return response()->json($santri, 201);
     }
 
-    // Memperbarui data santri berdasarkan ID
     public function update(Request $request, $id)
     {
         $santri = Santri30Juz::find($id);
@@ -53,7 +49,6 @@ class Santri30JuzController extends Controller
         return response()->json($santri);
     }
 
-    // Menghapus data santri berdasarkan ID
     public function destroy($id)
     {
         $santri = Santri30Juz::find($id);
