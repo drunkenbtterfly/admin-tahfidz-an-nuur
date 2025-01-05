@@ -32,6 +32,8 @@ class GaleriController extends Controller
             return response()->json(['message' => 'Galeri not found'], 404);
         }
 
+        $galeri->url = url('storage/' . $galeri->url);
+
         return response()->json($galeri, 200);
     }
 }
